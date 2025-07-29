@@ -26,7 +26,7 @@ items_fdroid = []
 items_izzysoft = []
 
 for i in app_list:
-    print(f"{i} is installed from {app_list[i]}")
+    print(f"{i} is to be downloaded from {app_list[i]}")
     provider = app_list[i]
 
     if provider == "fdroid":
