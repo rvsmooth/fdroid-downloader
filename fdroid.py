@@ -1,4 +1,7 @@
-import requests, json, wget, os
+import requests
+import json
+import subprocess
+import os
 
 app_list = {
     "com.artifex.mupdf.viewer.app": "fdroid",
@@ -21,6 +24,7 @@ app_list = {
 
 items_fdroid = []
 items_izzysoft = []
+
 for i in app_list:
     print(f"{i} is installed from {app_list[i]}")
     provider = app_list[i]
@@ -31,14 +35,24 @@ for i in app_list:
         items_izzysoft.append(i)
 
 
+def wget_dl(url, out_path):
+    cmd = ["wget", url, "-O", out_path]
+    subprocess.run(cmd)
+
+
 def getapps(app_dict, api_url, dl_url):
     for item in app_dict:
         response = requests.get(f"{api_url}/{item}")
         response_json = json.loads(response.text)
         version = response_json["suggestedVersionCode"]
         apk = f"{item}_{version}.apk"
-        wget.wget_download(f"{dl_url}/{apk}", output_path=f"downloads/{apk}")
+        wget_dl(f"{dl_url}/{apk}", out_path=f"downloads/{apk}")
 
+
+if os.path.exists("downloads"):
+    print("downloads dir exists")
+else:
+    os.makedirs("downloads")
 
 getapps(
     items_izzysoft,
