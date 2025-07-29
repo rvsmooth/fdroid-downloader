@@ -43,7 +43,7 @@ def wget_dl(url, out_path):
         url (str)      : URL to download.
         out_path (str) : Path where the downloaded file will be saved.
     """
-    cmd = ["wget", url, "-O", out_path]
+    cmd = ["wget", "-qO", out_path, "--show-progress", "--wait=2", "--random-wait", url]
     subprocess.run(cmd)
 
 
