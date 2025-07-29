@@ -36,11 +36,27 @@ for i in app_list:
 
 
 def wget_dl(url, out_path):
+    """
+    Download file from URL using wget.
+
+    Attributes:
+        url (str)      : URL to download.
+        out_path (str) : Path where the downloaded file will be saved.
+    """
     cmd = ["wget", url, "-O", out_path]
     subprocess.run(cmd)
 
 
 def getapps(app_dict, api_url, dl_url):
+    """
+    Download apps from izzysoft or fdroid or similar api providing sites
+
+    Args:
+    app_dict (dict) : Applist
+    api_url (str)   : Api url for izzysoft or f-droid
+    dl_url (str)    : Common download url
+
+    """
     for item in app_dict:
         response = requests.get(f"{api_url}/{item}")
         response_json = json.loads(response.text)
