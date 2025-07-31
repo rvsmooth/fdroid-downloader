@@ -18,6 +18,8 @@ app_list = {
     "ru.tech.imageresizershrinker": "fdroid",
     "com.xayah.databackup.foss": "fdroid",
     "com.akylas.documentscanner": "izzysoft",
+    "com.philkes.notallyx": "fdroid",
+    "com.akylas.aard2": "fdroid",
 }
 
 items_fdroid = []
