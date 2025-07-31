@@ -4,22 +4,22 @@ import subprocess
 import os
 
 app_list = {
+    "com.akylas.aard2": "fdroid",
+    "com.akylas.documentscanner": "izzysoft",
     "com.artifex.mupdf.viewer.app": "fdroid",
-    "org.localsend.localsend_app": "fdroid",
-    "proton.android.pass.fdroid": "fdroid",
-    "helium314.keyboard": "fdroid",
-    "com.looker.droidify": "fdroid",
-    "ua.acclorite.book_story": "fdroid",
     "com.bnyro.wallpaper": "fdroid",
+    "com.looker.droidify": "fdroid",
+    "com.philkes.notallyx": "fdroid",
+    "com.termux": "fdroid",
+    "com.xayah.databackup.foss": "fdroid",
+    "dev.anilbeesetti.nextplayer": "fdroid",
+    "helium314.keyboard": "fdroid",
     "net.cozic.joplin": "fdroid",
     "org.documentfoundation.libreoffice": "fdroid",
-    "com.termux": "fdroid",
-    "dev.anilbeesetti.nextplayer": "fdroid",
+    "org.localsend.localsend_app": "fdroid",
+    "proton.android.pass.fdroid": "fdroid",
     "ru.tech.imageresizershrinker": "fdroid",
-    "com.xayah.databackup.foss": "fdroid",
-    "com.akylas.documentscanner": "izzysoft",
-    "com.philkes.notallyx": "fdroid",
-    "com.akylas.aard2": "fdroid",
+    "ua.acclorite.book_story": "fdroid",
 }
 
 items_fdroid = []
