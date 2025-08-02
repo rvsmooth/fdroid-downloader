@@ -3,24 +3,8 @@ import json
 import subprocess
 import os
 
-app_list = {
-    "com.akylas.aard2": "fdroid",
-    "com.akylas.documentscanner": "izzysoft",
-    "com.artifex.mupdf.viewer.app": "fdroid",
-    "com.bnyro.wallpaper": "fdroid",
-    "com.looker.droidify": "fdroid",
-    "com.philkes.notallyx": "fdroid",
-    "com.termux": "fdroid",
-    "com.xayah.databackup.foss": "fdroid",
-    "dev.anilbeesetti.nextplayer": "fdroid",
-    "helium314.keyboard": "fdroid",
-    "net.cozic.joplin": "fdroid",
-    "org.documentfoundation.libreoffice": "fdroid",
-    "org.localsend.localsend_app": "fdroid",
-    "proton.android.pass.fdroid": "fdroid",
-    "ru.tech.imageresizershrinker": "fdroid",
-    "ua.acclorite.book_story": "fdroid",
-}
+with open("app_list.json", "r") as applist:
+    app_list = json.load(applist)
 
 items_fdroid = []
 items_izzysoft = []
