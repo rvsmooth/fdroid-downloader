@@ -2,6 +2,7 @@ import requests
 import json
 import subprocess
 import os
+import glob
 
 with open("app_list.json", "r") as applist:
     app_list = json.load(applist)
@@ -46,7 +47,10 @@ def getapps(app_dict, api_url, dl_url):
         response_json = json.loads(response.text)
         version = response_json["suggestedVersionCode"]
         apk = f"{item}_{version}.apk"
-        wget_dl(f"{dl_url}/{apk}", out_path=f"downloads/{apk}")
+        if os.path.exists(apk):
+            print(apk, "is downloaded already")
+        else:
+            wget_dl(f"{dl_url}/{apk}", out_path=f"downloads/{apk}")
 
 
 if os.path.exists("downloads"):
@@ -65,3 +69,20 @@ getapps(
     api_url="https://f-droid.org/api/v1/packages",
     dl_url="https://f-droid.org/repo",
 )
+
+question = input(
+    "Would you want to install the apks to the currently connected adb device? (yes/no): "
+)
+
+apks = glob.glob("./downloads/*.apk")
+adb_install = ["adb", "install"]
+if question.lower() == "yes":
+    for apk in apks:
+        adb_install = adb_install[:2]
+        adb_install.append(apk)
+        subprocess.run(adb_install)
+
+elif question.lower() == "no":
+    print("Skipping Installation")
+else:
+    print("Invalid choices")
