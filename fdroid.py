@@ -3,12 +3,26 @@ import json
 import subprocess
 import os
 import glob
+import sys
 
-with open("app_list.json", "r") as applist:
-    app_list = json.load(applist)
+script_dir = os.path.abspath(os.path.dirname(__file__))
+link = "https://raw.githubusercontent.com/rvsmooth/fdroid-downloader/refs/heads/main/app_list.json"
+
+if os.path.exists("./app_list.json"):
+    print("found app_list.json")
+    with open("app_list.json", "r") as applist:
+        app_list = json.load(applist)
+else:
+    print(
+        "didn't find app_list.json. \nmake sure you put app_list.json in: ", script_dir
+    )
+    print("check out :", link)
+    print("Aborting")
+    sys.exit(1)
 
 items_fdroid = []
 items_izzysoft = []
+
 
 for i in app_list:
     print(f"{i} is to be downloaded from {app_list[i]}")
@@ -47,7 +61,6 @@ def getapps(app_dict, api_url, dl_url):
         response_json = json.loads(response.text)
         version = response_json["suggestedVersionCode"]
         apk = f"{item}_{version}.apk"
-        script_dir = os.path.abspath(os.path.dirname(__file__))
         if os.path.exists(script_dir + "/downloads/" + apk):
             print(apk, "is downloaded already")
             print(
