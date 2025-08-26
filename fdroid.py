@@ -47,8 +47,12 @@ def getapps(app_dict, api_url, dl_url):
         response_json = json.loads(response.text)
         version = response_json["suggestedVersionCode"]
         apk = f"{item}_{version}.apk"
-        if os.path.exists(apk):
+        script_dir = os.path.abspath(os.path.dirname(__file__))
+        if os.path.exists(script_dir + "/downloads/" + apk):
             print(apk, "is downloaded already")
+            print(
+                "If there is any problem with the apk, then \ndelete it first and then re-run the script."
+            )
         else:
             wget_dl(f"{dl_url}/{apk}", out_path=f"downloads/{apk}")
 

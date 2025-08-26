@@ -3,7 +3,7 @@
 A simple python script to download packages from fdroid or izzysoft for convenience
 
 ## Usage
-
+Make sure you got adb, wget installed and your device connected and allowed for ADB from your pc.
 ### Step 1
 
 First add your packages to app_list.json.
