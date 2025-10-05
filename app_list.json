@@ -1,7 +1,5 @@
 {
-  "com.akylas.aard2": "fdroid",
   "com.akylas.documentscanner": "izzysoft",
-  "com.artifex.mupdf.viewer.app": "fdroid",
   "com.beemdevelopment.aegis": "fdroid",
   "com.bnyro.wallpaper": "fdroid",
   "com.looker.droidify": "fdroid",
@@ -10,10 +8,14 @@
   "com.xayah.databackup.foss": "fdroid",
   "dev.anilbeesetti.nextplayer": "fdroid",
   "helium314.keyboard": "fdroid",
-  "net.cozic.joplin": "fdroid",
   "org.documentfoundation.libreoffice": "fdroid",
+  "com.standardnotes": "fdroid",
   "org.localsend.localsend_app": "fdroid",
   "proton.android.pass.fdroid": "fdroid",
   "ru.tech.imageresizershrinker": "fdroid",
-  "ua.acclorite.book_story": "fdroid"
+  "ua.acclorite.book_story": "fdroid",
+  "universe.constellation.orion.viewer": "fdroid",
+  "com.fadcam": "fdroid",
+  "com.raival.compose.file.explorer": "izzysoft",
+  "org.mozilla.fennec_fdroid": "fdroid"
 }
